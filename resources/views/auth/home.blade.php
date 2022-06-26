@@ -3,5 +3,5 @@
 @extends('layouts.application')
 
 @section('content')
-    <P>ここに好きなものを入れていきます！</P>
+    <P>送られてきた変数は〇〇です</P>
 @endsection
