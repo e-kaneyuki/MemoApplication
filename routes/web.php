@@ -25,5 +25,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', function () {
            return view('auth.home');
     })->name('auth.home');
+    Route::get('/index', 'App\Http\Controllers\TaskController@index')->name('index');
 });
 require __DIR__.'/auth.php';
