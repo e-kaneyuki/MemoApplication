@@ -18,6 +18,7 @@
 <br>
 <form action="/store" method="post">
     {{ csrf_field() }}
+    <!-- Value = "1"はtrueを "0"はfalseを意味する -->
     <label>
         <input type="radio" name="task_flg" value="1" disabled="disabled">実施済み
     </label>
@@ -27,7 +28,6 @@
     <table width="100%" height= "200"  border="3">
         <tr height= "50" bgcolor="skyblue" align="center"><th width="150">項目</th><td width="500" >詳細</td></tr>
         <tr><th width="150" align="center">タスク</th><td height= "40"><input style = 'width:100%; height: 100%;' type="text" name="task" placeholder="タスク名を入力" maxlength="30" required></td></tr>
-
         <tr><th width="150">メモ</th><td height= "120"><textarea style = 'width:100%; height: 100%; resize: none' name="memo" placeholder="タスクについてのメモを入力" required></textarea></td></tr>
     </table>
     <br>
