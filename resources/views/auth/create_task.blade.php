@@ -11,8 +11,8 @@
         <th>更新日</th>
     </tr>
     <tr align="center">
-        <td><p></p></td>
-        <td><p></p></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
     </tr>
 </table>
 <br>
