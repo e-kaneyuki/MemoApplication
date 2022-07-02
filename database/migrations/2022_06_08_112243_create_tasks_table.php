@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('task')->comment('課題');
-            $table->string('memo')->comment('備考欄');
+            $table->string('task', 30)->comment('課題');
+            $table->string('memo', 255)->comment('備考欄');
             // 非実施でfalse　実施済みでtrueを返す
             $table->boolean('task_flg')->default(false)->comment('タスクフラグ');
             // userのidを参照. userが消えるとtaskも消える

@@ -27,5 +27,11 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('auth.home');
     Route::get('/index', 'App\Http\Controllers\TaskController@index')->name('index');
     Route::get('/show/{id}', 'App\Http\Controllers\TaskController@show')->name('show');
+    Route::get('/create', 'App\Http\Controllers\TaskController@create')->name('create');
+    Route::post('/store', 'App\Http\Controllers\TaskController@store')->name('store');
+    Route::get('/edit/{id}', 'App\Http\Controllers\TaskController@edit')->name('edit');
+    Route::patch('/update/{id}', 'App\Http\Controllers\TaskController@update')->name('update');
+    Route::get('/delete/{id}', 'App\Http\Controllers\TaskController@delete')->name('delete');
+    Route::patch('/delete/{id}', 'App\Http\Controllers\TaskController@delete')->name('delete');
 });
 require __DIR__.'/auth.php';
