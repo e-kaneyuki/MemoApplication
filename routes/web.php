@@ -33,5 +33,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('/update/{id}', 'App\Http\Controllers\TaskController@update')->name('update');
     Route::get('/delete/{id}', 'App\Http\Controllers\TaskController@delete')->name('delete');
     Route::patch('/delete/{id}', 'App\Http\Controllers\TaskController@delete')->name('delete');
+    Route::get('/search/{id}', 'App\Http\Controllers\TaskController@search')->name('search');
 });
 require __DIR__.'/auth.php';
