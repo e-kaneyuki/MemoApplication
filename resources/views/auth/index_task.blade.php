@@ -1,12 +1,36 @@
 @section('title', 'Task管理ツール')
-
 @extends('layouts.application')
-
 @section('content')
+@if(session('message'))
+<div class="alert alert-success">{{session('message')}}</div>
+@elseif(session('delete_message'))
+<div class="alert alert-danger">{{session('delete_message')}}</div>
+@endif
 
-<h3>私のタスク数は 『{{count($collection)}}』です</h3>
+<h3>私の
+    @if($task_flg_zero == true && $task_flg_one == true)
+        すべての
+    @elseif($task_flg_zero == true && $task_flg_one == false)
+        非実施の
+    @else($task_flg_zero == false && $task_flg_one == true)
+        実施済みの
+    @endif
+    タスク数は 『{{count($collection)}}』です
+</h3>
 
 <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('create')}}'">新規作成</button>
+<form action="index.php" method = "POST">
+    <div class="form-group">
+        <label for="category-id">{{ __('絞り込み') }}
+        <select class="form-select" id="category-id" name="task_flg" onChange="location.href=value;">
+        <option selected="selected" value=>選択してください</option>
+            <option value="/index">すべて</option>
+            <option value="/search/0">非実施</option>
+            <option value="/search/1">実施済み</option>
+        </select>
+        </label>
+    </div>
+</form>
 <br>
 
 <table cellpadding="10"  width="100%" border="2">
