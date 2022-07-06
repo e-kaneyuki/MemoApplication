@@ -3,7 +3,9 @@
 @extends('layouts.application')
 
 @section('content')
-
+@if(session('message'))
+<div class="alert alert-success">{{session('message')}}</div>
+@endif
 <h3>私のタスク詳細</h3>
 <table width="300" border="2">
     <tr align="center">
