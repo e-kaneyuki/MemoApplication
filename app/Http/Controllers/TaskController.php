@@ -51,7 +51,7 @@ class TaskController extends Controller
         $task->memo = $request->memo;
         $task->user_id = Auth::id();
         $task->save();
-        return redirect('/index')->with('message', 'タスクを作成しました');
+        return redirect('/task/index')->with('message', 'タスクを作成しました');
     }
     public function edit($id) {
         $edit_task = Task::find($id);
@@ -71,12 +71,12 @@ class TaskController extends Controller
         $task->task_flg = $request->task_flg;
         $task->user_id = Auth::id();
         $task->save();
-        return redirect()->route('show', ['id' => $id])->with('message', 'タスクを編集しました');
+        return redirect()->route('task.show', ['id' => $id])->with('message', 'タスクを編集しました');
     }
     public function delete($id) {
         $task = Task::find($id);
         $task->delete();
-        return redirect('/index')->with('delete_message', 'タスクを削除しました');
+        return redirect('/task/index')->with('delete_message', 'タスクを削除しました');
     }
     /**
      * Task実施状況でのSort

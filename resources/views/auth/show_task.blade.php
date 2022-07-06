@@ -30,9 +30,9 @@
     <tr><th width="150">メモ</th><td style= "white-space: pre-wrap;">{{$pick_task['memo']}}</td></tr>
 </table>
 <br>
-<button type="button" onclick="location.href='{{ route('edit', ['id' => $pick_task['id']])}}'">編集</button>
-<button type="button" onclick="location.href='{{ route('index')}}'">もどる</button>
+<button type="button" onclick="location.href='{{ route('task.edit', ['id' => $pick_task['id']])}}'">編集</button>
+<button type="button" onclick="location.href='{{ route('task.index')}}'">もどる</button>
 
-<button type="button" onclick="location.href='{{ route('delete', ['id' => $pick_task['id']])}}'">削除</button>
+<button type="button" onclick="location.href='{{ route('task.delete', ['id' => $pick_task['id']])}}'">削除</button>
 
 @endsection
