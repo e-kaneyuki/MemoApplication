@@ -45,4 +45,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+    public function plan()
+    {
+        return $this->hasMany(Plan::class);
+    }
 }
