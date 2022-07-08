@@ -6,7 +6,7 @@
 @elseif(session('delete_message'))
 <div class="alert alert-danger">{{session('delete_message')}}</div>
 @endif
-
+<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('place.index')}}'">観光リストへ</button>
 <h3>私の
     @if($task_flg_zero == true && $task_flg_one == true)
         すべての
