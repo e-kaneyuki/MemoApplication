@@ -23,7 +23,7 @@ class TaskController extends Controller
         $task_flg_zero = in_array(false,$array_task_flg);
         $task_flg_one = in_array(true,$array_task_flg);
 
-        return view('auth.index_task', compact('collection','task_flg_zero','task_flg_one'));
+        return view('auth.task.index_task', compact('collection','task_flg_zero','task_flg_one'));
     }
     /**
      * Task詳細表示
@@ -33,11 +33,11 @@ class TaskController extends Controller
     public function show($id) {
         $pick_task = Task::find($id);
 
-        return view('auth.show_task', compact('pick_task'));
+        return view('auth.task.show_task', compact('pick_task'));
     }
     //Task新規作成画面への遷移
     public function create() {
-        return view('auth.create_task');
+        return view('auth.task.create_task');
     }
     /**
      * Task新規登録
@@ -51,11 +51,11 @@ class TaskController extends Controller
         $task->memo = $request->memo;
         $task->user_id = Auth::id();
         $task->save();
-        return redirect('/index')->with('message', 'タスクを作成しました');
+        return redirect('/task/index')->with('message', 'タスクを作成しました');
     }
     public function edit($id) {
         $edit_task = Task::find($id);
-        return view('auth.edit_task', compact('edit_task'));
+        return view('auth.task.edit_task', compact('edit_task'));
     }
     /**
      * Task情報更新
@@ -71,12 +71,12 @@ class TaskController extends Controller
         $task->task_flg = $request->task_flg;
         $task->user_id = Auth::id();
         $task->save();
-        return redirect()->route('show', ['id' => $id])->with('message', 'タスクを編集しました');
+        return redirect()->route('task.show', ['id' => $id])->with('message', 'タスクを編集しました');
     }
     public function delete($id) {
         $task = Task::find($id);
         $task->delete();
-        return redirect('/index')->with('delete_message', 'タスクを削除しました');
+        return redirect('/task/index')->with('delete_message', 'タスクを削除しました');
     }
     /**
      * Task実施状況でのSort
@@ -93,7 +93,7 @@ class TaskController extends Controller
         $task_flg_zero = in_array(false,$array_task_flg);
         $task_flg_one = in_array(true,$array_task_flg);
 
-        return view('auth.index_task', compact('collection','task_flg_zero','task_flg_one'));
+        return view('auth.task.index_task', compact('collection','task_flg_zero','task_flg_one'));
     }
 
 }

@@ -45,4 +45,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+    public function place()
+    {
+        return $this->hasMany(Place::class);
+    }
 }

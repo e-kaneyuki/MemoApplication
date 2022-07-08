@@ -16,7 +16,7 @@
     </tr>
 </table>
 <br>
-<form action="/store" method="post">
+<form action="/task/store" method="post">
     {{ csrf_field() }}
     <!-- Value = "1"はtrueを "0"はfalseを意味する -->
     <label>
@@ -32,7 +32,7 @@
     </table>
     <br>
     <input type="submit" value="送信">
-    <button type="button" onclick="location.href='{{ route('index')}}'">もどる</button>
+    <button type="button" onclick="location.href='{{ route('task.index')}}'">もどる</button>
 </form>
 <br>
 

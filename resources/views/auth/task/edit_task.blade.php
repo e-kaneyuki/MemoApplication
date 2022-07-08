@@ -16,7 +16,7 @@
     </tr>
 </table>
 <br>
-<form action="/update/{{$edit_task['id']}}" method="post">
+<form action="/task/update/{{$edit_task['id']}}" method="post">
     {{ csrf_field() }}
     <label>
         <input type="radio" name="task_flg" value="1"  @if($edit_task['task_flg'] == 1) checked @endif  required>実施済み
@@ -32,8 +32,8 @@
     <br>
     <input type="hidden" name="_method" value="patch">
     <input type="submit" value="送信">
-    <button type="button" onclick="location.href='{{ route('index')}}'">もどる</button>
-    <button type="button" onclick="location.href='{{ route('delete', ['id' => $edit_task['id']])}}'">削除</button>
+    <button type="button" onclick="location.href='{{ route('task.index')}}'">もどる</button>
+    <button type="button" onclick="location.href='{{ route('task.delete', ['id' => $edit_task['id']])}}'">削除</button>
 </form>
 <br>
 
