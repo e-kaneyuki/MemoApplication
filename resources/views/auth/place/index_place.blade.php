@@ -6,8 +6,14 @@
 @elseif(session('delete_message'))
 <div class="alert alert-danger">{{session('delete_message')}}</div>
 @endif
-<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">タスク一覧へ</button>
-<h3>私の観光リストのうち
+<h3>観光リスト</h3>
+<br>
+<div>
+    <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">タスク一覧へ</button>
+    <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">カレンダーリストへ</button>
+</div>
+<br>
+    <h3>私の観光リストのうち
     @if($place_flg_zero == true && $place_flg_one == true)
         すべての
     @elseif($place_flg_zero == true && $place_flg_one == false)
@@ -17,8 +23,7 @@
     @endif
     観光地は 『{{count($collection)}}つ』です
 </h3>
-
-<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('place.create')}}'">新規作成</button>
+<br>
 <form action="place/index" method = "GET">
     <div class="form-group">
         <label for="category-id">{{ __('絞り込み') }}
@@ -31,6 +36,7 @@
         </label>
     </div>
 </form>
+<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('place.create')}}'">新規作成</button>
 <br>
 
 <table cellpadding="10"  width="100%" border="2">

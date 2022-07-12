@@ -6,7 +6,13 @@
 @elseif(session('delete_message'))
 <div class="alert alert-danger">{{session('delete_message')}}</div>
 @endif
-<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('place.index')}}'">観光リストへ</button>
+<h3>タスク一覧</h3>
+<br>
+<div>
+    <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('place.index')}}'">観光リストへ</button>
+    <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('index_task_google_calendar')}}'">カレンダーリストへ</button>
+</div>
+<br>
 <h3>私の
     @if($task_flg_zero == true && $task_flg_one == true)
         すべての
@@ -17,8 +23,7 @@
     @endif
     タスク数は 『{{count($collection)}}』です
 </h3>
-
-<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.create')}}'">新規作成</button>
+<br>
 <form action="task/index" method = "GET">
     <div class="form-group">
         <label for="category-id">{{ __('絞り込み') }}
@@ -31,6 +36,7 @@
         </label>
     </div>
 </form>
+<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.create')}}'">新規作成</button>
 <br>
 
 <table cellpadding="10"  width="100%" border="2">
