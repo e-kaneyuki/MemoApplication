@@ -19,9 +19,9 @@
         <th>予定日</th>
         <th>ボタン</th>
     </tr>
-    @foreach($google_event as $onetask)
+    @foreach($google_event as $key => $onetask)
     <tr>
-        <td nowrap align="center">・</td>
+        <td nowrap align="center">{{$key+1}}</td>
         <td nowrap style="overflow: hidden; max-width: 0; width: 50%;"><a href="{{ url('/calendar/show/'.$onetask->id) }}">{{$onetask['summary']}}</a></td>
         <td style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 0; width: 20%;">{{$onetask['description']}}</td>
         <td nowrap>{{date('Y年m月d日 H時i分',strtotime($onetask['start']['dateTime']))}}</td>
