@@ -10,13 +10,14 @@ class GoogleCalendarController extends Controller
 {
     public function index() {
         // $user = Auth::user();
+        $time = Carbon::now();
         $collection = Event::get();
         $google_event = $collection->pluck('googleEvent');
         $event_start = $google_event->pluck('start');
         $event_start_date_time = $event_start->pluck('dateTime');
 
 
-        return view('auth.google_calendar.index_task_google_calendar', compact('google_event', 'event_start_date_time'));
+        return view('auth.google_calendar.index_task_google_calendar', compact('time','google_event', 'event_start_date_time'));
     }
     public function show($id) {
 
