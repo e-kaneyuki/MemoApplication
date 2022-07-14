@@ -41,12 +41,12 @@
 
 <table cellpadding="10"  width="100%" border="2">
     <tr align="center">
-        <th>No.</th>
+        <th nowrap>No.</th>
         <th nowrap>済み</th>
-        <th>スポット名</th>
-        <th>メモ</th>
-        <th>更新日</th>
-        <th>ボタン</th>
+        <th nowrap>スポット名</th>
+        <th nowrap>メモ</th>
+        <th nowrap>更新日</th>
+        <th nowrap>ボタン</th>
     </tr>
     @foreach($collection as $key => $oneplace)
     <tr>
