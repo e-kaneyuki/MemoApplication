@@ -1,6 +1,7 @@
 @section('title', '観光地管理ツール')
 @extends('layouts.application')
 @section('content')
+<div class="pb-5">
 @if(session('message'))
 <div class="alert alert-success">{{session('message')}}</div>
 @elseif(session('delete_message'))
@@ -48,7 +49,7 @@
         <th nowrap>更新日</th>
         <th nowrap>ボタン</th>
     </tr>
-    @foreach($collection as $key => $oneplace)
+    @foreach($collection_page as $key => $oneplace)
     <tr>
         <td nowrap align="center">{{$key+1}}</td>
         <td align="center"><input type="checkbox" style="transform: scale(1.4);" @if($oneplace['place_flg'] == 1) checked @endif disabled="disabled"/></td>
@@ -60,5 +61,7 @@
     </tr>
     @endforeach
 </table>
-
+<br>
+{{$collection_page->links()}}
+</div>
 @endsection

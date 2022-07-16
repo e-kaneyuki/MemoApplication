@@ -1,6 +1,7 @@
 @section('title', 'Task管理ツール')
 @extends('layouts.application')
 @section('content')
+<div class="pb-5">
 <h3>カレンダーリスト</h3>
 <br>
 <div>
@@ -19,7 +20,7 @@
         <th nowrap>予定日</th>
         <th nowrap>ボタン</th>
     </tr>
-    @foreach($google_event as $key => $onetask)
+    @foreach($collection_page as $key => $onetask)
     <tr>
         <td nowrap align="center">{{$key+1}}</td>
         <td nowrap style="overflow: hidden; max-width: 0; width: 50%;"><a href="{{ url('/calendar/show/'.$onetask['id']) }}">{{$onetask['summary']}}</a></td>
@@ -32,5 +33,7 @@
     </tr>
     @endforeach
 </table>
-
+<br>
+{{$collection_page->links()}}
+</div>
 @endsection
