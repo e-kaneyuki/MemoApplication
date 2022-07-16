@@ -18,12 +18,13 @@ class TaskController extends Controller
     public function index() {
         $user = Auth::user();
         $collection = $user->task()->get();
+        $collection_page = $collection->paginate(5);
         $task_flg_base = $collection->pluck('task_flg');
         $array_task_flg = $task_flg_base->toArray();
         $task_flg_zero = in_array(false,$array_task_flg);
         $task_flg_one = in_array(true,$array_task_flg);
 
-        return view('auth.task.index_task', compact('collection','task_flg_zero','task_flg_one'));
+        return view('auth.task.index_task', compact('collection','collection_page','task_flg_zero','task_flg_one'));
     }
     /**
      * Task詳細表示
@@ -88,12 +89,13 @@ class TaskController extends Controller
     public function search($task_fig) {
         $user = Auth::user();
         $collection = $user->task()->where('task_flg',$task_fig)->get();
+        $collection_page = $collection->paginate(5);
         $task_flg_base = $collection->pluck('task_flg');
         $array_task_flg = $task_flg_base->toArray();
         $task_flg_zero = in_array(false,$array_task_flg);
         $task_flg_one = in_array(true,$array_task_flg);
 
-        return view('auth.task.index_task', compact('collection','task_flg_zero','task_flg_one'));
+        return view('auth.task.index_task', compact('collection','collection_page','task_flg_zero','task_flg_one'));
     }
 
 }
