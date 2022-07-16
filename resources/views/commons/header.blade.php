@@ -1,4 +1,4 @@
-<header class="navbar navbar-dark header" style="background-color: #C7B2D6; margin-bottom:100px;">
+<header class="navbar navbar-dark header sticky-top" style="background-color: #C7B2D6; margin-bottom:50px;">
 
     <a class="navbar-brand text-dark" style="font-size:x-large;" href="/">
         セルフ管理ツール
