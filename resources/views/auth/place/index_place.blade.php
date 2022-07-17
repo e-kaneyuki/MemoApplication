@@ -1,13 +1,20 @@
 @section('title', '観光地管理ツール')
 @extends('layouts.application')
 @section('content')
+<div class="pb-5">
 @if(session('message'))
 <div class="alert alert-success">{{session('message')}}</div>
 @elseif(session('delete_message'))
 <div class="alert alert-danger">{{session('delete_message')}}</div>
 @endif
-<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">タスク一覧へ</button>
-<h3>私の観光リストのうち
+<h3>観光リスト</h3>
+<br>
+<div>
+    <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">タスク一覧へ</button>
+    <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">カレンダーリストへ</button>
+</div>
+<br>
+    <h3>私の観光リストのうち
     @if($place_flg_zero == true && $place_flg_one == true)
         すべての
     @elseif($place_flg_zero == true && $place_flg_one == false)
@@ -17,8 +24,7 @@
     @endif
     観光地は 『{{count($collection)}}つ』です
 </h3>
-
-<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('place.create')}}'">新規作成</button>
+<br>
 <form action="place/index" method = "GET">
     <div class="form-group">
         <label for="category-id">{{ __('絞り込み') }}
@@ -31,18 +37,19 @@
         </label>
     </div>
 </form>
+<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('place.create')}}'">新規作成</button>
 <br>
 
 <table cellpadding="10"  width="100%" border="2">
     <tr align="center">
-        <th>No.</th>
+        <th nowrap>No.</th>
         <th nowrap>済み</th>
-        <th>スポット名</th>
-        <th>メモ</th>
-        <th>更新日</th>
-        <th>ボタン</th>
+        <th nowrap>スポット名</th>
+        <th nowrap>メモ</th>
+        <th nowrap>更新日</th>
+        <th nowrap>ボタン</th>
     </tr>
-    @foreach($collection as $key => $oneplace)
+    @foreach($collection_page as $key => $oneplace)
     <tr>
         <td nowrap align="center">{{$key+1}}</td>
         <td align="center"><input type="checkbox" style="transform: scale(1.4);" @if($oneplace['place_flg'] == 1) checked @endif disabled="disabled"/></td>
@@ -54,5 +61,7 @@
     </tr>
     @endforeach
 </table>
-
+<br>
+{{$collection_page->links()}}
+</div>
 @endsection

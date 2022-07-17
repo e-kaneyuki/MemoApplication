@@ -1,7 +1,7 @@
-<header class="navbar navbar-dark header" style="background-color: #00B4ED; margin-bottom:100px;">
+<header class="navbar navbar-dark header sticky-top" style="background-color: #C7B2D6; margin-bottom:50px;">
 
-    <a class="navbar-brand text-white" style="font-size:x-large;" href="/">
-        Task管理ツール
+    <a class="navbar-brand text-dark" style="font-size:x-large;" href="/">
+        セルフ管理ツール
     </a>
 
     @if (Auth::check())

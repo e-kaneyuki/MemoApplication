@@ -17,12 +17,13 @@ class PlaceController extends Controller
     public function index() {
         $user = Auth::user();
         $collection = $user->place()->get();
-        $place_flg_base = $collection->pluck('place_flg');
+        $collection_page = $collection->paginate(5);
+        $place_flg_base = $collection_page->pluck('place_flg');
         $array_place_flg = $place_flg_base->toArray();
         $place_flg_zero = in_array(false,$array_place_flg);
         $place_flg_one = in_array(true,$array_place_flg);
 
-        return view('auth.place.index_place', compact('collection','place_flg_zero','place_flg_one'));
+        return view('auth.place.index_place', compact('collection','collection_page','place_flg_zero','place_flg_one'));
     }
     /**
      * place詳細表示
@@ -87,11 +88,12 @@ class PlaceController extends Controller
     public function search($place_fig) {
         $user = Auth::user();
         $collection = $user->place()->where('place_flg',$place_fig)->get();
+        $collection_page = $collection->paginate(5);
         $place_flg_base = $collection->pluck('place_flg');
         $array_place_flg = $place_flg_base->toArray();
         $place_flg_zero = in_array(false,$array_place_flg);
         $place_flg_one = in_array(true,$array_place_flg);
 
-        return view('auth.place.index_place', compact('collection','place_flg_zero','place_flg_one'));
+        return view('auth.place.index_place', compact('collection','collection_page','place_flg_zero','place_flg_one'));
     }
 }
