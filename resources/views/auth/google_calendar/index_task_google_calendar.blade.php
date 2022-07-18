@@ -1,7 +1,7 @@
 @section('title', 'Task管理ツール')
 @extends('layouts.application')
 @section('content')
-<div class="pb-5">
+<div class="pb-4">
 <h3><img src="../images/icons8-google-calendar-48.png" alt="サンプル画像">カレンダーリスト</h3>
 <br>
 <div>

@@ -18,7 +18,7 @@ class TaskController extends Controller
     public function index() {
         $user = Auth::user();
         $collection = $user->task()->get();
-        $collection_page = $collection->paginate(5);
+        $collection_page = $collection->paginate(3);
         $task_flg_base = $collection->pluck('task_flg');
         $array_task_flg = $task_flg_base->toArray();
         $task_flg_zero = in_array(false,$array_task_flg);

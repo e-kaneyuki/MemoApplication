@@ -1,7 +1,7 @@
 @section('title', '観光地管理ツール')
 @extends('layouts.application')
 @section('content')
-<div class="pb-5">
+<div class="pb-4">
 @if(session('message'))
 <div class="alert alert-success">{{session('message')}}</div>
 @elseif(session('delete_message'))
