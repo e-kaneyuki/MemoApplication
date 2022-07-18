@@ -28,5 +28,7 @@
 </table>
 </div>
 <br>
+<button type="button" onclick="location.href='{{ route('edit_task_google_calendar', ['id' => $pick_event->googleEvent['id']])}}'">編集</button>
 <button type="button" onclick="location.href='{{ route('index_task_google_calendar')}}'">もどる</button>
+<button type="button" onclick="location.href='{{ route('delete_task_google_calendar', ['id' => $pick_event->googleEvent['id']])}}'">削除</button>
 @endsection
