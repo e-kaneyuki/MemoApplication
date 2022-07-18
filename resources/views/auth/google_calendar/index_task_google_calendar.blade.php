@@ -12,8 +12,7 @@
 <h3>{{date('n月d日',strtotime($time))}}以降のスケジュールです</h3>
 <br>
     <button type="button"  class="btn btn-success btn-sm" style='margin-bottom: 10px'  onclick="location.href='{{ route('create_task_google_calendar')}}'">新規作成</button>
-<div style="background-color : #FFFFFF">
-    <table cellpadding="10" class="table table-striped" width="100%" border="2">
+    <table style="background-color : #FFFFFF" cellpadding="10" class="table table-striped" width="100%" border="2">
     <tr align="center">
         <th nowrap>No.</th>
         <th nowrap>タスク名</th>
@@ -34,7 +33,6 @@
     </tr>
     @endforeach
 </table>
-</div>
 <br>
 {{$collection_page->links()}}
 </div>

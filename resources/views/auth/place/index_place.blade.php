@@ -39,8 +39,7 @@
 </form>
 <button type="button" class="btn btn-success btn-sm" style='margin-bottom: 10px' onclick="location.href='{{ route('place.create')}}'">新規作成</button>
 <br>
-<div style="background-color : #FFFFFF">
-<table cellpadding="10" class="table table-striped" width="100%" border="2">
+<table style="background-color : #FFFFFF" cellpadding="10" class="table table-striped" width="100%" border="2">
     <tr align="center">
         <th nowrap>No.</th>
         <th nowrap>済み</th>
@@ -62,7 +61,6 @@
     </tr>
     @endforeach
 </table>
-</div>
 <br>
 {{$collection_page->links()}}
 </div>
