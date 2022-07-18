@@ -89,7 +89,7 @@ class TaskController extends Controller
     public function search($task_fig) {
         $user = Auth::user();
         $collection = $user->task()->where('task_flg',$task_fig)->get();
-        $collection_page = $collection->paginate(5);
+        $collection_page = $collection->paginate(3);
         $task_flg_base = $collection->pluck('task_flg');
         $array_task_flg = $task_flg_base->toArray();
         $task_flg_zero = in_array(false,$array_task_flg);
