@@ -12,7 +12,7 @@ class GoogleCalendarController extends Controller
         $time = Carbon::now();
         $collection = Event::get();
         $google_event = $collection->pluck('googleEvent');
-        $collection_page = $google_event->paginate(5);
+        $collection_page = $google_event->paginate(3);
         $event_start = $google_event->pluck('start');
         $event_start_date_time = $event_start->pluck('dateTime');
 

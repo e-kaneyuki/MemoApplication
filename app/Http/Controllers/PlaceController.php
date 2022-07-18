@@ -17,7 +17,7 @@ class PlaceController extends Controller
     public function index() {
         $user = Auth::user();
         $collection = $user->place()->get();
-        $collection_page = $collection->paginate(5);
+        $collection_page = $collection->paginate(3);
         $place_flg_base = $collection_page->pluck('place_flg');
         $array_place_flg = $place_flg_base->toArray();
         $place_flg_zero = in_array(false,$array_place_flg);

@@ -1,18 +1,18 @@
 @section('title', 'Task管理ツール')
 @extends('layouts.application')
 @section('content')
-<div class="pb-5">
-<h3>カレンダーリスト</h3>
+<div class="pb-4">
+<h3><img src="../images/icons8-google-calendar-48.png" alt="サンプル画像">カレンダーリスト</h3>
 <br>
 <div>
-    <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">タスク一覧へ</button>
-    <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('place.index')}}'">観光リストへ</button>
+    <button type="button" class="btn btn-success btn-lg" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">タスク一覧へ</button>
+    <button type="button" class="btn btn-success btn-lg" style='margin-bottom: 10px' onclick="location.href='{{ route('place.index')}}'">観光リストへ</button>
 </div>
 <br>
 <h3>{{date('n月d日',strtotime($time))}}以降のスケジュールです</h3>
 <br>
-    <button type="button" style='margin-bottom: 10px'  onclick="location.href='{{ route('create_task_google_calendar')}}'">新規作成</button>
-<table cellpadding="10"  width="100%" border="2">
+    <button type="button"  class="btn btn-success btn-sm" style='margin-bottom: 10px'  onclick="location.href='{{ route('create_task_google_calendar')}}'">新規作成</button>
+    <table style="background-color : #FFFFFF" cellpadding="10" class="table table-striped" width="100%" border="2">
     <tr align="center">
         <th nowrap>No.</th>
         <th nowrap>タスク名</th>
@@ -27,8 +27,8 @@
         <td style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 0; width: 20%;">{{$onetask['description']}}</td>
         <td nowrap>{{date('Y年m月d日',strtotime($onetask['start']['dateTime']))}}~{{date('m月d日',strtotime($onetask['end']['dateTime']))}}</td>
         <td nowrap>
-            <button type="button" onclick="location.href='{{ route('edit_task_google_calendar', ['id' => $onetask['id']])}}'">編集</button>
-            <button type="button" onclick="location.href='{{ route('delete_task_google_calendar', ['id' => $onetask['id']])}}'">削除</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="location.href='{{ route('edit_task_google_calendar', ['id' => $onetask['id']])}}'">編集</button>
+            <button type="button" class="btn btn-danger btn-sm" onclick="location.href='{{ route('delete_task_google_calendar', ['id' => $onetask['id']])}}'">削除</button>
         </td>
     </tr>
     @endforeach

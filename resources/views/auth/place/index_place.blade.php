@@ -1,7 +1,7 @@
 @section('title', '観光地管理ツール')
 @extends('layouts.application')
 @section('content')
-<div class="pb-5">
+<div class="pb-4">
 @if(session('message'))
 <div class="alert alert-success">{{session('message')}}</div>
 @elseif(session('delete_message'))
@@ -10,8 +10,8 @@
 <h3>観光リスト</h3>
 <br>
 <div>
-    <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">タスク一覧へ</button>
-    <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">カレンダーリストへ</button>
+    <button type="button" class="btn btn-success btn-lg" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">タスク一覧へ</button>
+    <button type="button" class="btn btn-success btn-lg" style='margin-bottom: 10px' onclick="location.href='{{ route('index_task_google_calendar')}}'"><img src="../images/icons8-google-calendar-48.png" alt="サンプル画像"width="24" height="24">カレンダーリストへ</button>
 </div>
 <br>
     <h3>私の観光リストのうち
@@ -37,10 +37,9 @@
         </label>
     </div>
 </form>
-<button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('place.create')}}'">新規作成</button>
+<button type="button" class="btn btn-success btn-sm" style='margin-bottom: 10px' onclick="location.href='{{ route('place.create')}}'">新規作成</button>
 <br>
-
-<table cellpadding="10"  width="100%" border="2">
+<table style="background-color : #FFFFFF" cellpadding="10" class="table table-striped" width="100%" border="2">
     <tr align="center">
         <th nowrap>No.</th>
         <th nowrap>済み</th>
@@ -56,8 +55,9 @@
         <td nowrap style="overflow: hidden; max-width: 0; width: 50%;"><a href="{{ url('/place/show/'.$oneplace->id) }}">{{$oneplace['place']}}</a></td>
         <td style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 0; width: 20%;">{{$oneplace['detail']}}</td>
         <td nowrap>{{$oneplace['updated_at']->format('y年m月d日')}}</td>
-        <td nowrap><button type="button" onclick="location.href='{{ route('place.edit', ['id' => $oneplace['id']])}}'">編集</button>
-        <button type="button" onclick="location.href='{{ route('place.delete', ['id' => $oneplace['id']])}}'">削除</button></td>
+        <td nowrap>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="location.href='{{ route('place.edit', ['id' => $oneplace['id']])}}'">編集</button>
+            <button type="button" class="btn btn-danger btn-sm" onclick="location.href='{{ route('place.delete', ['id' => $oneplace['id']])}}'">削除</button></td>
     </tr>
     @endforeach
 </table>

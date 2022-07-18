@@ -1,9 +1,9 @@
-<header class="navbar navbar-dark header sticky-top" style="background-color: #C7B2D6; margin-bottom:50px;">
+<header class="navbar navbar-dark header sticky-top" style="background-color: #C7B2D6; margin-bottom:20px;">
 
     <a class="navbar-brand text-dark" style="font-size:x-large;" href="/">
         セルフ管理ツール
     </a>
-    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+    <div class="hidden fixed top-0 right-0 px-6 sm:block">
     @if (Auth::check())
         <div class="mt-3 space-y-1">
             <!-- Authentication -->

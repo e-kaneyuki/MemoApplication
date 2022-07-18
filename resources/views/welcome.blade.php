@@ -7,7 +7,7 @@
     <br>
 </div>
 <div>
-    <h3>スケジュールは金行のGoogleカレンダーと連携させており共有が可能です</h3>
+    <h3>スケジュールは金行の<img src="../images/icons8-google-calendar-48.png" alt="サンプル画像">Googleカレンダーと連携させており共有が可能です</h3>
     <br>
 </div>
 <div>
@@ -23,15 +23,15 @@
                     @auth
                         <h4>ログイン済みです<br>
                         以下の一覧へお進みください</h4>
-                        <button type="button" onclick="location.href='{{ route('task.index')}}'">タスク一覧へ</button>
-                        <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('place.index')}}'">観光リストへ</button>
-                        <button type="button" style='margin-bottom: 10px' onclick="location.href='{{ route('index_task_google_calendar')}}'">カレンダーリストへ</button>
+                        <button type="button" class="btn btn-success btn-lg" style='margin-bottom: 10px' onclick="location.href='{{ route('task.index')}}'">タスク一覧へ</button>
+                        <button type="button" class="btn btn-success btn-lg" style='margin-bottom: 10px' onclick="location.href='{{ route('place.index')}}'">観光リストへ</button>
+                        <button type="button" class="btn btn-success btn-lg" style='margin-bottom: 10px' onclick="location.href='{{ route('index_task_google_calendar')}}'"><img src="../images/icons8-google-calendar-48.png" alt="サンプル画像"width="24" height="24">カレンダーリストへ</button>
                     @else
                         <h4>ログイン後はタスク一覧へ移ります</h4>
-                        <button type="button" onclick="location.href='{{ route('login')}}'">ログイン</button>
+                        <button type="button" class="btn btn-success btn-lg" onclick="location.href='{{ route('login')}}'">ログイン</button>
 
                         @if (Route::has('register'))
-                            <button type="button" onclick="location.href='{{ route('register')}}'">新規登録</button>
+                            <button type="button" class="btn btn-success btn-lg" onclick="location.href='{{ route('register')}}'">新規登録</button>
                             <!-- <button href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</button> -->
                         @endif
                     @endauth

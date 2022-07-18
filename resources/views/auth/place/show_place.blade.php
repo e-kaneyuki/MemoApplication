@@ -7,7 +7,7 @@
 <div class="alert alert-success">{{session('message')}}</div>
 @endif
 <h3>スポット詳細</h3>
-<table width="300" border="2">
+<table style="background-color : #FFFFFF" width="300" border="2">
     <tr align="center">
         <th>作成日</th>
         <th>更新日</th>
@@ -24,11 +24,13 @@
 <label>
     <input type="radio" name="place_flg" @if($pick_place['place_flg'] == 0) checked @endif value="0">非実施
 </label>
+<div style="background-color : #FFFFFF">
 <table width="100%" height= "200" cellpadding="10" border="3">
     <tr height= "50" bgcolor="skyblue" align="center"><th width="150">項目</th><td>詳細</td></tr>
     <tr><th width="150" align="center">スポット名</th><td>{{$pick_place['place']}}</td></tr>
     <tr><th width="150">メモ</th><td style= "white-space: pre-wrap;">{{$pick_place['detail']}}</td></tr>
 </table>
+</div>
 <br>
 <button type="button" onclick="location.href='{{ route('place.edit', ['id' => $pick_place['id']])}}'">編集</button>
 <button type="button" onclick="location.href='{{ route('place.index')}}'">もどる</button>
