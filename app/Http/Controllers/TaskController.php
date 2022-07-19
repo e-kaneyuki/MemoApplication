@@ -17,7 +17,7 @@ class TaskController extends Controller
      */
     public function index() {
         $user = Auth::user();
-        $collection = $user->task()->get();
+        $collection = $user->task()->orderBy('created_at', 'asc')->get();
         $collection_page = $collection->paginate(3);
         $task_flg_base = $collection->pluck('task_flg');
         $array_task_flg = $task_flg_base->toArray();
@@ -88,7 +88,7 @@ class TaskController extends Controller
      */
     public function search($task_fig) {
         $user = Auth::user();
-        $collection = $user->task()->where('task_flg',$task_fig)->get();
+        $collection = $user->task()->where('task_flg',$task_fig)->orderBy('created_at', 'asc')->get();
         $collection_page = $collection->paginate(3);
         $task_flg_base = $collection->pluck('task_flg');
         $array_task_flg = $task_flg_base->toArray();

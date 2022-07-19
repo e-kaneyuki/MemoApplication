@@ -4,8 +4,8 @@
 
 @section('content')
 
-<h3>私のタスク詳細</h3>
-<table width="400" border="2">
+<h3>スケジュール登録</h3>
+<table style="background-color : #FFFFFF" width="400" border="2">
     <tr align="center">
         <th>作成日</th>
         <th>更新日</th>
@@ -25,7 +25,7 @@
     <label>
         <input type="radio" name="task_flg" value="0" checked require>非実施
     </label>
-    <table width="100%" height= "200"  border="3">
+    <table style="background-color : #FFFFFF" width="100%" height= "200"  border="3">
         <tr height= "50" bgcolor="skyblue" align="center">
             <th width="150">項目</th>
             <td width="500">詳細</td>
