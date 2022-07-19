@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h3>私のスケジュール詳細</h3>
+<h3>スケジュール登録</h3>
 <table style="background-color : #FFFFFF" width="400" border="2">
     <tr align="center">
         <th>作成日</th>

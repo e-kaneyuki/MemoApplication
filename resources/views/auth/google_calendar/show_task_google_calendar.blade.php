@@ -6,7 +6,7 @@
 @if(session('message'))
 <div class="alert alert-success">{{session('message')}}</div>
 @endif
-<h3>私のスケジュール詳細</h3>
+<h3>スケジュール詳細</h3>
 <table style="background-color : #FFFFFF" width="400" border="2">
     <tr align="center">
         <th>作成日</th>
