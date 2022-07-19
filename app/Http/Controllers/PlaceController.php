@@ -16,7 +16,7 @@ class PlaceController extends Controller
      */
     public function index() {
         $user = Auth::user();
-        $collection = $user->place()->get();
+        $collection = $user->place()->orderBy('created_at', 'asc')->get();
         $collection_page = $collection->paginate(3);
         $place_flg_base = $collection_page->pluck('place_flg');
         $array_place_flg = $place_flg_base->toArray();
@@ -87,7 +87,7 @@ class PlaceController extends Controller
      */
     public function search($place_fig) {
         $user = Auth::user();
-        $collection = $user->place()->where('place_flg',$place_fig)->get();
+        $collection = $user->place()->where('place_flg',$place_fig)->orderBy('created_at', 'asc')->get();
         $collection_page = $collection->paginate(3);
         $place_flg_base = $collection->pluck('place_flg');
         $array_place_flg = $place_flg_base->toArray();
